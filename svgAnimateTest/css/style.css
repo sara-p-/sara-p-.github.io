@@ -1,0 +1,30 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+#wrapper {
+	width: 100%;
+	height: 100%;
+		display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+        -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#hey {
+	width: 400px;
+	margin-bottom: 50px;
+}
+
+#you {
+	width: 75%;
+}
