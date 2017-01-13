@@ -1,48 +1,58 @@
 // Setting up the Global Variables
 var i = 0;
 var numberx;
+var numbery;
 
 
 
 // Creating the elements to play around with:
 var theThing = function() {
-
 	for( i=0; i < 10; i++) {
 		var theDiv = document.createElement("DIV");
 		theDiv.className = "things";
 		document.getElementById("thing").appendChild(theDiv);
 	}
 }
-
 theThing();
 
 
-function makeRandomNumber() {
+var allThings = document.getElementsByClassName("things");
 
-for (i = 0; i < 10; i++) {
-  // Runs 5 times, with values of step 0 through 4.
-  numberx = Math.floor(Math.random() * 500);
-  console.log(numberx);
-
-}
-	return numberx;
-}
-
-
-makeRandomNumber();
 
 
 // Creating the first display class:
 function cloudButton() {
-	allThings = document.getElementsByClassName("things");
 
 	for( i=0; i < 10; i++) {
-		allThings[i].classList.toggle("cloud");
-		
-		
+		allThings[i].classList.toggle("cloud");	
 	}
-	// console.log(makeRandomNumber() + " top");
+	
+	// Now I need a function that will assign random numbers to the position of the elements
+	function randomPositionX() {
+		for (i = 0; i < 10; i++) {
+	  numberx = Math.floor(Math.random() * 800);
+	  allThings[i].style.left = numberx + "px";
+	
+	}
+	// return numberx;
 }
+
+	function randomPositionY() {
+		for (i = 0; i < 10; i++) {
+	  numbery = Math.floor(Math.random() * 600);
+	  allThings[i].style.top = numbery + "px";
+	}
+	return numbery;
+}
+
+
+	randomPositionX();
+	randomPositionY();
+
+
+	
+}
+
 
 
 
