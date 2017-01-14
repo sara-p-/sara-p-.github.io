@@ -11,6 +11,9 @@ var numberx;
 var numbery;
 var firstNumberX;
 var firstNumberY;
+var theCurrentPositions;
+var currentpositionX;
+var currentpositionY;
 
 
 	// Functions that assign random numbers to the position of the elements:
@@ -53,8 +56,19 @@ function resetY() {
 	}
 }
 
+// function currentPosition() {
+// 	for( i=0; i < 10; i++) {
+// 		var currentpositionX = allThings[3].style.left;
+// 		currentpositionY = allThings[i].style.top;	
+// 		console.log("x= " + currentpositionX);
+// 	}
 
+// }
+// currentPosition();
 
+var currentpositionX = allThings[3].style.backgroundColor;
+console.log("working");
+console.log(allThings[0].style);
 
 // Creating the cloud display class:
 function cloudButton() {
