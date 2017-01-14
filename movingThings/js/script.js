@@ -1,11 +1,22 @@
+
+// 1. Set up elements
+// 2. Read/store positions
+// 3. Onclick - randomize positions
+// 4. Onclick - go back to original positions
+
+
 // Setting up the Global Variables
-var i = 0;
+
 var numberx;
 var numbery;
+var firstNumberX;
+var firstNumberY;
 
 
+	// Functions that assign random numbers to the position of the elements:
 
-// Creating the elements to play around with:
+
+// Setting up the elements:
 var theThing = function() {
 	for( i=0; i < 10; i++) {
 		var theDiv = document.createElement("DIV");
@@ -14,43 +25,100 @@ var theThing = function() {
 	}
 }
 theThing();
-
-
 var allThings = document.getElementsByClassName("things");
 
-
-
-// Creating the first display class:
-function cloudButton() {
-
-	for( i=0; i < 10; i++) {
-		allThings[i].classList.toggle("cloud");	
-	}
-	
-	// Now I need a function that will assign random numbers to the position of the elements
-	function randomPositionX() {
+function randomPositionX() {
 		for (i = 0; i < 10; i++) {
 	  numberx = Math.floor(Math.random() * 800);
 	  allThings[i].style.left = numberx + "px";
-	
 	}
-	// return numberx;
 }
-
-	function randomPositionY() {
+function randomPositionY() {
 		for (i = 0; i < 10; i++) {
 	  numbery = Math.floor(Math.random() * 600);
 	  allThings[i].style.top = numbery + "px";
 	}
-	return numbery;
 }
 
 
-	randomPositionX();
-	randomPositionY();
+function resetX() {
+	for (i = 0; i < 10; i++) {
+  	allThings[i].style.left = "0px";
+	}
+}
+
+function resetY() {
+	for (i = 0; i < 10; i++) {
+  	allThings[i].style.top = "0px";
+	}
+}
 
 
-	
+
+
+// Creating the cloud display class:
+function cloudButton() {
+	if(allThings[0].classList.contains("linear")) {
+		for( i=0; i < 10; i++) {
+			allThings[i].classList.remove("linear");
+			allThings[i].classList.add("cloud");	
+		}
+		randomPositionX();
+		randomPositionY();
+
+	} else  {
+		for( i=0; i < 10; i++) {
+		allThings[i].classList.add("cloud");	
+	}
+		randomPositionX();
+		randomPositionY();
+
+	}		
+}
+
+// Creating the linear display class:
+function linearButton() {
+	if(allThings[0].classList.contains("cloud")) {
+		for( i=0; i < 10; i++) {
+			allThings[i].classList.remove("cloud");
+			allThings[i].classList.add("linear");	
+			}
+			resetX();
+			resetY();
+
+	} 
+		else  {
+			for( i=0; i < 10; i++) {
+			allThings[i].classList.add("linear");	
+			}
+			resetX();
+			resetY();
+		}		
+}
+
+
+// Reset button
+function resetButton() {
+	if(allThings[0].classList.contains("cloud")) {
+			for( i=0; i < 10; i++) {
+			allThings[i].classList.remove("cloud");	
+			}
+		resetX();
+		resetY();
+	} 
+		else if(allThings[0].classList.contains("linear"))  {
+			for( i=0; i < 10; i++) {
+			allThings[i].classList.remove("linear");	
+			}
+
+			resetX();
+			resetY();
+		}
+			else{
+				resetX();
+				resetY();
+			}
+
 }
 
 
