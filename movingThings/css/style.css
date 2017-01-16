@@ -23,8 +23,8 @@ button {
 /* Animations & Transitions
 ==================================================*/
 @keyframes shiver {
-    from {transform: translate(0.8px, 0px);}
-    to {transform: translate(-0.8px, 0px);}
+    from {transform: translate(1px, 0px);}
+    to {transform: translate(-1px, 0px);}
 }
 
 .things, .cloud, .linear {
