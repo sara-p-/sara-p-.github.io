@@ -28,8 +28,8 @@ button {
 }
 
 .things, .cloud, .linear {
-	-webkit-transition: top 1s, left 1s;
-	transition: top 1s, left 1s;
+	-webkit-transition: top 3s, left 3s;
+	transition: top 3s, left 3s;
 }
 
 
@@ -54,9 +54,9 @@ nav ul {
 
 
 div#thing {
- /*   display: flex;
-    justify-content: center;
-    position: relative;*/
+    position: relative;
+    width: 75%;
+    margin: auto;
 }
 
 .things {
@@ -65,23 +65,21 @@ div#thing {
 	width: 50px;
 	height: 50px;
 	border-radius: 50px;
-	display: inline-block;
 	margin: 5px;
-	position: relative;
+	position: absolute;
 	z-index: 900;
 	animation: shiver .005s linear 0s infinite alternate;
 }
 
 .cloud {
-	position: fixed;
+	position: absolute;
 	z-index: 900;
 }
 
 .linear {
-	position: relative;
+	position: absolute;
 	display: block;
-/*	top:0;
-	left:0;*/
+
 }
 
 
