@@ -28,8 +28,8 @@ button {
 }
 
 .things, .cloud, .linear {
-	-webkit-transition: top 3s, left 3s;
-	transition: top 3s, left 3s;
+	-webkit-transition: top 1s, left 1s;
+	transition: top 1s, left 1s;
 }
 
 
