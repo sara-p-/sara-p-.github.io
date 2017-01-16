@@ -14,7 +14,7 @@ body {
 
 button {
 	
-	font-size: 0.8rem;
+	font-size: 2rem;
 	padding: 10px;
 	margin-right: 5px;
 }
@@ -81,6 +81,27 @@ div#thing {
 	display: block;
 
 }
+
+/* Media Queries
+==================================================*/
+@media only screen and (max-width: 480px) {
+	div#thing {
+		width: 100%;
+		margin: 20px;
+	}
+
+	li {
+		width: 100%;
+		text-align: center;
+
+	}
+
+
+
+  }
+
+
+
 
 
 
