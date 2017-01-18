@@ -1,17 +1,51 @@
 
-// 1. Set up elements
-// 2. Read/store positions
-// 3. Onclick - randomize positions
-// 4. Onclick - go back to original positions
+// Now I need to record the positions of the "line" elements, and pass it to the canvass
 
 
 // Setting up the Global Variables
 var allThings = document.getElementsByClassName("things");
+var lineThings = document.getElementsByClassName("line");
+var moveButton = document.getElementById("gobutton");
 var thingWidth = allThings[0].clientWidth;
 var thingHeight = allThings[0].clientHeight;
+var myXinterval;
+var myYinterval;
 var numberx;
 var numbery;
 
+// Function to clear switch the different button classes:
+function buttonClass(button, function1, function2) {
+	if(allThings[0].classList.contains("linear")) {
+
+		for( i=0; i < allThings.length; i++) {
+			allThings[i].classList.remove("linear");		
+			allThings[i].classList.add(button);	
+		}
+		function1;
+		function2;
+	} else if ( allThings[0].classList.contains("cloud") ) {
+		for( i=0; i < allThings.length; i++) {
+			allThings[i].classList.remove("cloud");		
+			allThings[i].classList.add(button);	
+		}
+		function1;
+		function2;
+	} else if ( allThings[0].classList.contains("go") ) {
+		for( i=0; i < allThings.length; i++) {
+			allThings[i].classList.remove("cloud");		
+			allThings[i].classList.add(button);	
+		}
+		function1;
+		function2;
+	} else {
+		for( i=0; i < allThings.length; i++) {	
+			allThings[i].classList.add(button);
+		}
+	function1;
+	function2;
+
+	}
+}
 
 
 function randomPositionX() {
@@ -29,6 +63,44 @@ function randomPositionY() {
 }
 
 
+// Creating the function to move the elements constantly
+function goButton() {
+	// if(allThings[0].classList.contains("linear")) {
+
+	// 	for( i=0; i < allThings.length; i++) {
+	// 		allThings[i].classList.remove("linear");		
+	// 		allThings[i].classList.add("go");	
+	// 	}
+	// } else if ( allThings[0].classList.contains("cloud") ) {
+	// 	for( i=0; i < allThings.length; i++) {
+	// 		allThings[i].classList.remove("cloud");		
+	// 		allThings[i].classList.add("go");	
+	// 	}
+	// } else {
+	// 	for( i=0; i < allThings.length; i++) {	
+	// 		allThings[i].classList.add("go");
+	// }
+
+	buttonClass("go", "", "");
+
+	if( moveButton.innerHTML === "go" ) {
+		moveButton.innerHTML = "stop";
+	} else {
+		moveButton.innerHTML = "go";
+	}
+
+	
+	 	myXinterval = setInterval(randomPositionX, 500);
+	 	myYinterval = setInterval(randomPositionY, 500);
+
+	if( moveButton.innerHTML === "go" ) {
+		clearInterval(myXinterval);
+		clearInterval(myYinterval);
+	}
+
+
+
+}
 // Creating the resting display class:
 function beginX(){
 	if (allThings[0].classList.contains("things")) {
@@ -57,22 +129,25 @@ function beginY(){
 
 // Creating the cloud display class:
 function cloudButton() {
-	if(allThings[0].classList.contains("linear")) {
+	// if(allThings[0].classList.contains("linear")) {
 
-		for( i=0; i < allThings.length; i++) {
-			allThings[i].classList.remove("linear");		
-			allThings[i].classList.add("cloud");	
-		}
-		randomPositionX();
-		randomPositionY();
+	// 	for( i=0; i < allThings.length; i++) {
+	// 		allThings[i].classList.remove("linear");		
+	// 		allThings[i].classList.add("cloud");	
+	// 	}
+	// 	randomPositionX();
+	// 	randomPositionY();
 
-	} else  {
-		for( i=0; i < allThings.length; i++) {
-		allThings[i].classList.add("cloud");	
-	}
-		randomPositionX();
-		randomPositionY();
-	}		
+	// } else  {
+	// 	for( i=0; i < allThings.length; i++) {
+	// 	allThings[i].classList.add("cloud");	
+	// }
+	// 	randomPositionX();
+	// 	randomPositionY();
+	// }	
+buttonClass("cloud", randomPositionY(), randomPositionX());
+
+
 }
 
 // Creating the linear display class:

@@ -17,6 +17,7 @@ button {
 	font-size: 2rem;
 	padding: 10px;
 	margin-right: 5px;
+	width: 100%;
 }
 
 
@@ -32,6 +33,10 @@ button {
 	transition: top 1s, left 1s;
 }
 
+.go {
+	-webkit-transition: top .01s, left .01s;
+	transition: top .01s, left .01s;
+}
 
 /* Navigation
 ==================================================*/
@@ -44,6 +49,10 @@ nav ul {
 	justify-content: center;
 }
 
+li {
+	width: 100%;
+	margin: 0 5px;
+}
 
 /* Elements
 ==================================================*/
