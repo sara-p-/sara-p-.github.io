@@ -28,14 +28,14 @@ button {
     to {transform: translate(-1px, 0px);}
 }
 
-.things, .cloud, .linear {
+ .things, .cloud, .linear {
 	-webkit-transition: top 1s, left 1s;
 	transition: top 1s, left 1s;
 }
 
-.go {
-	-webkit-transition: top .01s, left .01s;
-	transition: top .01s, left .01s;
+.move {
+	-webkit-transition: top .3s ease, left .3s ease;
+	transition: top .3s ease, left .3s ease;
 }
 
 /* Navigation
