@@ -12,14 +12,16 @@ var thingWidth = allThings[0].clientWidth;
 var thingHeight = allThings[0].clientHeight;
 var moveX;
 var moveY;
+var cloudmoveX;
+var cloudmoveY;
 var numberx;
 var numbery;
 var counter = 0;
+var moveCounter = 0;
 var canvas = document.getElementById("myCanvas");
 var canvasWidth = box.clientWidth;
 var canvasHeight = box.clientHeight;
 var ctx = canvas.getContext("2d");
-// var allCoords = lineCoords();
 var lineX;
 var lineY;
 var left;
@@ -32,36 +34,44 @@ canvas.setAttribute("height", canvasHeight);
 
 // Function to clear switch the different button classes:
 function buttonClass(button, function1, function2) {
+
 	if(allThings[0].classList.contains("linear")) {
+		moveCounter = 0;
 		for( i=0; i < allThings.length; i++) {
 			allThings[i].classList.remove("linear");		
 			allThings[i].classList.add(button);	
 		}
 		function1;
 		function2;
-	} else if ( allThings[0].classList.contains("cloud") ) {
+	} 
+
+	else if ( allThings[0].classList.contains("cloud") ) {
+		moveCounter = 0;
+		ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 		for( i=0; i < allThings.length; i++) {
 			allThings[i].classList.remove("cloud");		
 			allThings[i].classList.add(button);	
 		}
 		function1;
 		function2;
-	} else if ( allThings[0].classList.contains("move") ) {
+	} 
+
+	else if ( allThings[0].classList.contains("move") ) {
 		for( i=0; i < allThings.length; i++) {
 			allThings[i].classList.remove("move");		
 			allThings[i].classList.add(button);	
 		}
 		function1;
 		function2;
-	} else {
+	} 
+
+	else {
 		for( i=0; i < allThings.length; i++) {	
 			allThings[i].classList.add(button);
 		}
 	function1;
 	function2;
-
 	}
-
 }
 
 
@@ -70,7 +80,6 @@ function randomPositionX() {
 	  numberx = Math.floor(Math.random() * 800);
 	  allThings[i].style.left =  numberx + "px";
 	}
-	// return numberx;
 }
 
 function randomPositionY() {
@@ -78,7 +87,6 @@ function randomPositionY() {
 	  numbery = Math.floor(Math.random() * 600);
 	  allThings[i].style.top = numbery + "px";
 	}
-	// return numbery;
 }
 
 function randomMoveX() {
@@ -92,7 +100,6 @@ function randomMoveX() {
 		}
 }
 
-
 function randomMoveY() {
 	moveY = setInterval(frame2, 70);
 
@@ -103,7 +110,6 @@ function randomMoveY() {
 			}
 		}	
 }
-
 
 // Creating the resting display class:
 function beginX(){
@@ -134,39 +140,26 @@ function beginY(){
 // Creating the function to move the elements constantly
 function theMoveButton() {
 	buttonClass("move", "", "");
-
-	if (counter < 1) {
+	
+	if (moveCounter < 1) {
 		randomMoveX();
 		randomMoveY();
 		moveButton.innerHTML = "stop";
-		counter += 1;
+		moveCounter += 1;	
 	}
 
-	else if ( counter === 1 ) {
+	else if ( moveCounter === 1 ) {
 		moveButton.innerHTML = "move";
 		clearInterval(moveX);
 		clearInterval(moveY);
-		counter = 0;
-	} else {
-		counter = 0;
+		moveCounter = 0;	
+	} 
+
+	else {
+		moveCounter = 1;
 	}
-
+	console.log(moveCounter);
 }
-
-// THings
-	// function lineCoords() {
-	// 	for( i=0; i < allThings.length; i++) {
-	// 		lineX = allThings[i].style.left;
-	// 		lineY = allThings[i].style.top;	
-	// 	}
-	// 	return {lineX: lineX, lineY: lineY};
-	// }
-
-	// function drawLines( xcoord1, ycoord1, xcoord2, ycoord2 ) {
-	// 	ctx.moveTo(xcoord1,ycoord1);
-	// 	ctx.lineTo(xcoord2,ycoord2);
-	// 	ctx.stroke();
-	// }
 
 
 // Function for drawing the lines
@@ -189,52 +182,41 @@ function lineDraw() {
 }
 
 // Creating the cloud display class:
-function cloudButton() {	
-buttonClass("cloud", randomPositionX(), randomPositionY());
+function cloudButton() {
+	moveCounter = 0;	
+	buttonClass("cloud", "", "");
 	clearInterval(moveX);
 	clearInterval(moveY);
 
-
-
-
 	if (counter < 1) {
+		randomPositionX();
+		randomPositionY();
 		ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 		ctx.restore();
 		lineDraw();
 		ctx.save();
 		counter += 1;
-		console.log("1st");
+		// console.log("1st");
 	}
 
 	else if ( counter === 1 ) {
 		ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+		randomPositionX();
+		randomPositionY();
 		lineDraw();
 		ctx.save();
 		counter = 0;
-		console.log("2nd");
+		// console.log("2nd");
 	}
 	else {
 		counter = 0;
 	}
-
-
-
-	// var left1 = allThings[0].style.left;
-	// var top1 = allThings[0].style.top;
-	// var left2 = allThings[1].style.left;
-	// var top2 = allThings[1].style.top;
-
-
-
-
-	// console.log("x1 = " + x1 + ", " + "y1 = " + y1);	
-
 }
-
-
 
 // Creating the linear display class:
 function linearButton() {
+	moveCounter = 0;
+	ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 	if(allThings[0].classList.contains("cloud")) {
 		for( i=0; i < allThings.length; i++) {
 			allThings[i].style.left = "47%";
@@ -242,7 +224,9 @@ function linearButton() {
 			allThings[i].classList.add("linear");	
 			}
 			beginY();
-	} else if ( allThings[0].classList.contains("move") ) {
+	} 
+
+	else if ( allThings[0].classList.contains("move") ) {
 		for( i=0; i < allThings.length; i++) {
 			allThings[i].style.left = "47%";
 			allThings[i].classList.remove("move");
@@ -251,6 +235,7 @@ function linearButton() {
 			} 
 			beginY();
 		}	
+		
 		else  {
 			for( i=0; i < allThings.length; i++) {
 				allThings[i].style.left = "47%";
@@ -265,6 +250,8 @@ function linearButton() {
 
 // Reset button
 function resetButton() {
+	moveCounter = 0;
+	ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 	if(allThings[0].classList.contains("cloud")) {
 			for( i=0; i < allThings.length; i++) {
 				allThings[i].style.top = "0px";
@@ -272,33 +259,36 @@ function resetButton() {
 			}
 		beginX();
 	} 
+		
 		else if(allThings[0].classList.contains("linear"))  {
 			for( i=0; i < allThings.length; i++) {
 				allThings[i].style.top = "0px";	
 				allThings[i].classList.remove("linear");
-				
 			}
-			beginX();
-		} else if ( allThings[0].classList.contains("move") ) {
-		for( i=0; i < allThings.length; i++) {
-			allThings[i].classList.remove("move");		
+		beginX();
+		} 
+
+		else if ( allThings[0].classList.contains("move") ) {
+			for( i=0; i < allThings.length; i++) {
+				allThings[i].classList.remove("move");		
 			}
-			beginX;
+		beginX;
 		}
-			else{
+			
+			else {
 				for( i=0; i < allThings.length; i++) {
 					allThings[i].style.top = "0px";	
 				}
-				beginX();
+			beginX();
 			}
 }
 
 // Creating the canvas and the moving lines
-function linesButton() {
-	ctx.moveTo(0,0);
-	ctx.lineTo(400,100);
-	ctx.stroke();
+// function linesButton() {
+// 	ctx.moveTo(0,0);
+// 	ctx.lineTo(400,100);
+// 	ctx.stroke();
 
-}
+// }
 
 
