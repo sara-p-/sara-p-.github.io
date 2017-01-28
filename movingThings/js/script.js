@@ -233,75 +233,176 @@ function lineDraw() {
 		Y2 = parseInt(top2, 10) + 30;
 
 
-			ctx.beginPath();
-			ctx.moveTo(x1,y1);
-			ctx.lineTo(x2,y2);
-			ctx.stroke();
+			// ctx.beginPath();
+			// ctx.moveTo(X1,Y1);
+			// ctx.lineTo(X2,Y2);
+			// ctx.stroke();
+
+			$myCanvas.drawLine({
+				name: "line1",
+				group: ["lines"],
+				layer: true,
+				  strokeStyle: '#000000',
+				  strokeWidth: 1,
+				  x1: X1, 
+				  y1: Y1,
+				  x2: X2,
+				  y2: Y2
+			});
+
+
 		
 
 
 	}
 
 }
+var $theButton = $("#cloudbutton");
 
-function lineDrawings() {
+$theButton.addEventListener("click", function() {
+	$myCanvas.animateLayerGroup("lines", {
+		x1: 50, 
+		y1: 100,
+		x2: 200,
+		y2: 400
+	}, 500, "linear");
 
-	for( i=0; i < allThings.length; i+=2) {
-		left1 = allThings[i].style.left;
-		top1 = allThings[i].style.top;
-		left2 = allThings[i+1].style.left;
-		top2 = allThings[i+1].style.top;
-		X1 = parseInt(left1, 10) + 30;
-		Y1 = parseInt(top1, 10) + 30;
-		X2 = parseInt(left2, 10) + 30;
-		Y2 = parseInt(top2, 10) + 30;
+	console.log("on");
+});
+
+// function lineDrawings() {
+
+// 	for( i=0; i < allThings.length; i+=2) {
+// 		left1 = allThings[i].style.left;
+// 		top1 = allThings[i].style.top;
+// 		left2 = allThings[i+1].style.left;
+// 		top2 = allThings[i+1].style.top;
+// 		X1 = parseInt(left1, 10) + 30;
+// 		Y1 = parseInt(top1, 10) + 30;
+// 		X2 = parseInt(left2, 10) + 30;
+// 		Y2 = parseInt(top2, 10) + 30;
 
 
 		
-		$myCanvas.drawLine({
-		  strokeStyle: '#000000',
-		  strokeWidth: 1,
-		  x1: X1, 
-		  y1: Y1,
-		  x2: X2,
-		  y2: Y2
-		});
+// 		$myCanvas.drawLine({
+// 		name: "line",
+// 		group: ["lines"],
+// 		layer: true,
+// 		  strokeStyle: '#000000',
+// 		  strokeWidth: 1,
+// 		  x1: X1, 
+// 		  y1: Y1,
+// 		  x2: X2,
+// 		  y2: Y2
+// 		});
 
 
-	}
+// 	}
 
 
+// }
 
+// function lineDrawing1() {
+
+// 		left1 = allThings[0].style.left;
+// 		top1 = allThings[0].style.top;
+// 		left2 = allThings[1].style.left;
+// 		top2 = allThings[1].style.top;
+// 		X1 = parseInt(left1, 10) + 30;
+// 		Y1 = parseInt(top1, 10) + 30;
+// 		X2 = parseInt(left2, 10) + 30;
+// 		Y2 = parseInt(top2, 10) + 30;
+
+
+		
+// 		$myCanvas.drawLine({
+// 		name: "line1",
+// 		group: ["lines"],
+// 		layer: true,
+// 		  strokeStyle: '#000000',
+// 		  strokeWidth: 1,
+// 		  x1: X1, 
+// 		  y1: Y1,
+// 		  x2: X2,
+// 		  y2: Y2
+// 		});
+// }
+
+
+// // Creating the cloud display class:
+// function cloudButton() {
+// 	counter = 0;	
+// 	buttonClass("cloud", "", "");
+// 	clearInterval(moveX);
+// 	clearInterval(moveY);
+
+// 	if (counter < 1) {
+// 		randomPositionX();
+// 		randomPositionY();
+// 		ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+// 		setTimeout( function() {
+// 			ctx.restore();
+// 			lineDraw();
+// 			ctx.save();
+// 		}, 1000 );
+// 		counter += 1;
+// 	}
+
+// 	else if ( counter === 1 ) {
+// 		ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+// 		randomPositionX();
+// 		randomPositionY();
+// 		setTimeout( function() {
+// 			lineDraw();
+// 			ctx.save();
+// 		}, 1000 );
+// 		counter = 0;
+// 		// console.log("2nd");
+// 	}
+// 	else {
+// 		counter = 0;
+// 	}
+// }
+
+function animateLine() {
+	$myCanvas.animateLayerGroup("lines", {
+		x1: 50, 
+		y1: 100,
+		x2: 200,
+		y2: 400
+	}, 500, "linear");
+
+	console.log("on");
 }
-
-
 // Creating the cloud display class:
 function cloudButton() {
 	counter = 0;	
 	buttonClass("cloud", "", "");
 	clearInterval(moveX);
 	clearInterval(moveY);
-
+	
 	if (counter < 1) {
 		randomPositionX();
 		randomPositionY();
-		ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-		setTimeout( function() {
-			ctx.restore();
-			lineDraw();
-			ctx.save();
-		}, 1000 );
-		counter += 1;
+		// ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+		// setTimeout( function() {
+		// 	ctx.restore();
+		// 	lineDraw();
+		// 	ctx.save();
+		// }, 1000 );
+lineDraw();
+
+	animateLine();
 	}
 
 	else if ( counter === 1 ) {
-		ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+		// ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 		randomPositionX();
 		randomPositionY();
-		setTimeout( function() {
-			lineDraw();
-			ctx.save();
-		}, 1000 );
+		// setTimeout( function() {
+		// 	lineDraw();
+		// 	ctx.save();
+		// }, 1000 );
 		counter = 0;
 		// console.log("2nd");
 	}
@@ -345,6 +446,7 @@ function topPos2() {
 	return Y2;
 } 
 
+var $allLines = $("#myCanvas").getLayers();
 
 // Creating the animate display class:
 function animateButton() {
@@ -360,30 +462,41 @@ function animateButton() {
 	}
 
 
-
-
-
-
-
 	 $(".animate").each( function() {
 	 	randomPosX();
 	 	randomPosY();
-	 	leftPos1();
-	 	leftPos2();
-	 	topPos1();
-	 	topPos2();
 	 	$(this).animate({
 		left: randox,
 		top: randoy
-		}, 500, "linear");
+		}, 500, "linear", function() {
 
+		});
+		});
+
+	 for( i=0; i < allThings.length; i+=2) {
+	 	X1 = allThings[i].style.left;
+	 	Y1 = allThings[i].style.top;
+	 	X2 = allThings[i+1].style.left;
+	 	Y2 = allThings[i+1].style.top;
+	 
+	 }
+	
+
+	 console.log(X1, Y2, X2, Y2);
+
+	
 		$myCanvas.animateLayer("line", {
 			x1: X1, 
 			y1: Y1,
 			x2: X2,
 			y2: Y2
 		}, 500, "linear");
-	 });
+	
+	
+	
+	 	
+		
+	 
 		
 	
 }
