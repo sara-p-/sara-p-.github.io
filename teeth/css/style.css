@@ -1,0 +1,120 @@
+/* Global
+==================================================*/
+html, body {
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+body {
+	font-family: "Open Sans", arial, sans-serif;
+	font-size: 12px;
+}
+
+
+
+
+/* Animations & Transitions
+==================================================*/
+@-webkit-keyframes falling {
+	from {top: -15%;}
+	to {top: 105%;}
+}
+
+@-moz-keyframes falling {
+	from {top: -15%;}
+	to {top: 105%;}
+}
+
+@-ms-keyframes falling {
+	from {top: -15%;}
+	to {top: 105%;}
+}
+
+@-o-keyframes falling {
+	from {top: -15%;}
+	to {top: 105%;}
+}
+
+@keyframes falling {
+    from {top: -15%;}
+    to {top: 105%;}
+}
+
+
+img#cloud {
+	transition: transform 1s;
+}
+
+/* Navigation
+==================================================*/
+
+
+/* Elements
+==================================================*/
+#wrapper, #wrapper2, #box {
+	width: 100%;
+	height: 100%;
+/*	background-image: url("../../assets/omg-02.svg");
+	background-size: 10rem;
+	background-repeat: repeat;*/
+}
+
+#wrapper {
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	display: flex;
+	z-index: 900;
+
+}
+
+#wrapper2 {
+	position:absolute;
+	background: #F15A24; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(#FCEBFC, #FF00FF, #F15A24); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#FCEBFC, #FF00FF, #F15A24); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#FCEBFC, #FF00FF, #F15A24); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#FCEBFC, #FF00FF, #F15A24); /* Standard syntax */
+	overflow:hidden;
+}
+
+.teeth {
+	position: absolute;
+	top: -15%;
+}
+
+.animate {
+	-webkit-animation: falling 6s infinite ease-in;
+	-moz-animation: falling 6s infinite ease-in;
+	-ms-animation: falling 6s infinite ease-in;
+	-o-animation: falling 6s infinite ease-in;
+	animation: falling 6s infinite ease-in;
+}
+
+img#cloud {
+	width: 250px;
+}
+
+img#cloud:hover {
+	transform: scale(1.2, 1.2);
+	cursor: pointer;
+}
+
+
+
+/* Media Queries
+==================================================*/
+@media only screen and (max-width: 480px) {
+
+
+
+
+  }
+
+
+
+
+
+
