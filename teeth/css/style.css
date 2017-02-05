@@ -19,27 +19,27 @@ body {
 ==================================================*/
 @-webkit-keyframes falling {
 	from {top: -15%;}
-	to {top: 105%;}
+	to {top: 95%;}
 }
 
 @-moz-keyframes falling {
 	from {top: -15%;}
-	to {top: 105%;}
+	to {top: 95%;}
 }
 
 @-ms-keyframes falling {
 	from {top: -15%;}
-	to {top: 105%;}
+	to {top: 95%;}
 }
 
 @-o-keyframes falling {
 	from {top: -15%;}
-	to {top: 105%;}
+	to {top: 95%;}
 }
 
 @keyframes falling {
     from {top: -15%;}
-    to {top: 105%;}
+    to {top: 95%;}
 }
 
 
@@ -72,25 +72,31 @@ img#cloud {
 
 #wrapper2 {
 	position:absolute;
-	background: #F15A24; /* For browsers that do not support gradients */
-	background: -webkit-linear-gradient(#FCEBFC, #FF00FF, #F15A24); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(#FCEBFC, #FF00FF, #F15A24); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(#FCEBFC, #FF00FF, #F15A24); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(#FCEBFC, #FF00FF, #F15A24); /* Standard syntax */
+/*	background: #F15A24;
+	background: -webkit-linear-gradient(#FCEBFC, #FF00FF, #F15A24);
+	background: -o-linear-gradient(#FCEBFC, #FF00FF, #F15A24);
+	background: -moz-linear-gradient(#FCEBFC, #FF00FF, #F15A24); 
+	background: linear-gradient(#FCEBFC, #FF00FF, #F15A24); */
+	background-image: url("../../assets/GRID-02.svg");
+	background-size: 150%;
+	background-repeat: no-repeat;
+	background-position: center center;
 	overflow:hidden;
 }
 
 .teeth {
 	position: absolute;
-	top: -15%;
+	bottom:0px;
+	opacity: 0;
 }
 
 .animate {
-	-webkit-animation: falling 6s infinite ease-in;
-	-moz-animation: falling 6s infinite ease-in;
-	-ms-animation: falling 6s infinite ease-in;
-	-o-animation: falling 6s infinite ease-in;
-	animation: falling 6s infinite ease-in;
+	-webkit-animation: falling 6s 1 ease-in;
+	-moz-animation: falling 6s 1 ease-in;
+	-ms-animation: falling 6s 1 ease-in;
+	-o-animation: falling 6s 1 ease-in;
+	animation: falling 6s 1 ease-in;
+	opacity: 1;
 }
 
 img#cloud {
