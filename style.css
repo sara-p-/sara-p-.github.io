@@ -1,0 +1,72 @@
+/* Global
+==================================================*/
+html, body {
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+body {
+	font-family: "Fredoka One", arial, sans-serif;
+	font-size: 60px;
+}
+
+p, a {
+	line-height: 1.4;
+	color: #7846A3;
+	
+}
+
+a {
+	text-decoration: none;
+	color: #29ABE2;
+}
+
+
+
+/* Animations & Transitions
+==================================================*/
+
+
+/* Navigation
+==================================================*/
+
+
+/* Elements
+==================================================*/
+div#background-box, div#wrapper, div#fixed-box, div#scroll-box, div#plant-frame {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+div#scroll-box {
+	background-image: url('assets/dot-background-02.svg');
+	background-size: 16px 16px;
+	background-repeat: repeat;
+	background-attachment: fixed;
+	padding: 6rem;
+
+	
+}
+
+
+
+
+
+/* Media Queries
+==================================================*/
+@media only screen and (max-width: 480px) {
+
+
+
+
+  }
+
+
+
+
+
+

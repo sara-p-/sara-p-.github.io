@@ -1,0 +1,65 @@
+/* Global
+==================================================*/
+html, body {
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+body {
+	font-family: "Open Sans", arial, sans-serif;
+	font-size: 12px;
+}
+
+
+
+/* Animations & Transitions
+==================================================*/
+@keyframes throb {
+    from {transform: rotate(20deg);}
+    to {transform: rotate(-10deg); transform: scale(1.1, 1.1);}
+}
+@keyframes wiggle {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(20deg);}
+}
+
+
+
+/* Navigation
+==================================================*/
+
+
+/* Elements
+==================================================*/
+#wrapper {
+	width: 100%;
+	height: 100%;
+	display: flex;
+}
+
+#box1 {
+	width: 75%;
+	height: auto;
+	max-width: 500px;
+}
+
+
+
+
+
+/* Media Queries
+==================================================*/
+@media only screen and (max-width: 480px) {
+
+
+
+
+  }
+
+
+
+
+
+

@@ -67,6 +67,10 @@ img#cloud {
 	position: absolute;
 	display: flex;
 	z-index: 900;
+	background-image: url("../../assets/dots-01.svg");
+	background-size: 150%;
+	background-repeat: no-repeat;
+	background-position: center center;
 
 }
 

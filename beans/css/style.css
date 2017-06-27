@@ -1,0 +1,126 @@
+/* Global
+==================================================*/
+html, body {
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+body {
+	font-family: "Open Sans", arial, sans-serif;
+	font-size: 12px;
+}
+
+
+
+
+/* Animations & Transitions
+==================================================*/
+@-webkit-keyframes falling {
+	from {top: -15%;}
+	to {top: 95%;}
+}
+
+@-moz-keyframes falling {
+	from {top: -15%;}
+	to {top: 95%;}
+}
+
+@-ms-keyframes falling {
+	from {top: -15%;}
+	to {top: 95%;}
+}
+
+@-o-keyframes falling {
+	from {top: -15%;}
+	to {top: 95%;}
+}
+
+@keyframes falling {
+    from {top: -15%;}
+    to {top: 95%;}
+}
+
+
+img#cloud {
+	transition: transform 1s;
+}
+
+/* Navigation
+==================================================*/
+
+
+/* Elements
+==================================================*/
+#wrapper, #wrapper2, #box {
+	width: 100%;
+	height: 100%;
+/*	background-image: url("../../assets/omg-02.svg");
+	background-size: 10rem;
+	background-repeat: repeat;*/
+}
+
+#wrapper {
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	display: flex;
+	z-index: 900;
+
+}
+
+#wrapper2 {
+	position:absolute;
+/*	background: #F15A24;
+	background: -webkit-linear-gradient(#FCEBFC, #FF00FF, #F15A24);
+	background: -o-linear-gradient(#FCEBFC, #FF00FF, #F15A24);
+	background: -moz-linear-gradient(#FCEBFC, #FF00FF, #F15A24); 
+	background: linear-gradient(#FCEBFC, #FF00FF, #F15A24); */
+	background-image: url("../../assets/dots-01.svg");
+	background-size: 150%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	overflow:hidden;
+}
+
+.teeth {
+	position: absolute;
+	bottom:0px;
+	opacity: 0;
+}
+
+.animate {
+	-webkit-animation: falling 6s 1 ease-in;
+	-moz-animation: falling 6s 1 ease-in;
+	-ms-animation: falling 6s 1 ease-in;
+	-o-animation: falling 6s 1 ease-in;
+	animation: falling 6s 1 ease-in;
+	opacity: 1;
+}
+
+img#cloud {
+	width: 250px;
+}
+
+img#cloud:hover {
+	transform: scale(1.2, 1.2);
+	cursor: pointer;
+}
+
+
+
+/* Media Queries
+==================================================*/
+@media only screen and (max-width: 480px) {
+
+
+
+
+  }
+
+
+
+
+
+

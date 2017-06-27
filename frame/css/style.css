@@ -1,0 +1,91 @@
+/* Global
+==================================================*/
+html, body {
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+body {
+	font-family: "Fredoka One", arial, sans-serif;
+	font-size: 60px;
+}
+
+p {
+	line-height: 1.3;
+	
+}
+
+
+
+
+/* Animations & Transitions
+==================================================*/
+
+
+/* Navigation
+==================================================*/
+
+
+/* Elements
+==================================================*/
+div#background-box, div#wrapper, div#fixed-box, div#scroll-box, div#plant-frame {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+div#background-box {
+	/*height: 5000px;*/
+	background-image: url('../../assets/dot-background-02.svg');
+	background-size: 16px 16px;
+	background-repeat: repeat;
+	 z-index: 0;
+	 position: fixed;
+	 top: 0;
+}
+
+div#scroll-box {
+	height: 5000px;
+	padding: 6rem;
+}
+
+div#wrapper {
+    border: 3rem solid #ffffff;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+}
+
+div#fixed-box {
+    border: 20px solid #000000;
+}
+
+div#plant-frame {
+	background-image: url('../../assets/plant-frame-01.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: fixed;
+	background-position: bottom;
+	top: 0;
+	z-index: 6;
+}
+
+
+
+
+/* Media Queries
+==================================================*/
+@media only screen and (max-width: 480px) {
+
+
+
+
+  }
+
+
+
+
+
+
