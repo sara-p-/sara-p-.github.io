@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="../css/reset.css?v=1.0">
   <link rel="stylesheet" href="css/style.css?v=1.0">
  
-  <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+  
+  
 
 
 
@@ -25,13 +26,22 @@
 <body>
 
   <div id="wrapper">
-      <div id="box1" class=""><img src="../background.jpg"></div>
+      <div id="box1" class="box" data-stellar-ratio="1.1">
+        <img id="background" src="background.jpg"/>
+      </div>
+         <div id="box2" class="box" data-stellar-ratio="1">
+        <img id="foreground" src="foreground.png"/>
+    <!--   </div>
+         <div id="box3" class="box" data-stellar-ratio="1">
+        <img id="tree" src="tree.png"/>
+      </div> -->
   </div>
 
 
 
-
-	
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/jquerymigrate.js"></script>
+	<script type="text/javascript" src="../js/jquery.stellar.js"></script>
   <script src="js/script.js"></script>
  
 </body>
