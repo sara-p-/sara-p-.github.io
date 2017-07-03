@@ -40,29 +40,37 @@ body {
 }
 
 .box {
+	height:100%;
 	width: 100%;
-	height:auto;
-	display: flex;
+/*	display: flex;
 	align-items: center;
-	jusitfy-content: center;
-	position: absolute;
-	top:50px;
-	left: initial;
+	jusitfy-content: center;*/
+	position: relative;
 }
 
 .box img {
 	width: 500px;
 	height: auto;
-	margin: auto;
+	position: absolute;
+	top: 10%;
+	left:;
+	-webkit-transition: left .5s; /* Safari */
+    transition: left .5s;
 }
 
 /*#box2, #box3 {
 	position: fixed;
 }*/
 
-#box2 img, #box3 img {
+/*#box2 img, #box3 img {
 	width: 520px;
-}
+}*/
+/*
+#bottom {
+	position:fixed;
+	bottom: 0;
+	width:100%;
+}*/
 
 
 
